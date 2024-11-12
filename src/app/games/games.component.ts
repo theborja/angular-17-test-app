@@ -10,6 +10,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       @for (game of games; track game.id){
         <li (click)="fav(game.name)">{{ game.name }} </li>
       }
+      @empty {
+        <p> Empty test <p>
+      }
     </ul> 
   `,
   styles: ``
@@ -35,6 +38,7 @@ export class GamesComponent {
 
   fav(name: string){
     this.favGameEvent.emit(name);
+    this.games = [];
   }
 
 }
